@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import LabeledInput from '../reusable/LabeledInput';
 import GoogleLogo from '../../images/google-icon.svg';
-import LoginBackground from '../../images/Nike Sneakers Background.jpg';
-import { useDispatch } from 'react-redux';
-import { setRole } from '../../redux/reduxActions';
+import LoginBackground from '../../images/dark-drip-bg.png';
 import axiosApp from '../../utils/axiosConfig';
-import axios from 'axios';
+// import axios from 'axios';
 import { backend } from '../../utils/endpoints';
-import { ROLES } from '../../utils/data';
+// import { ROLES } from '../../utils/data';
 
 function LoginPage() {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
-	const [isRegister, setIsRegister] = useState(true);
+	const [isRegister, setIsRegister] = useState(false);
 	const [btnLoading, setBtnLoading] = useState(false);
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
@@ -40,7 +38,7 @@ function LoginPage() {
 				password
 			};
 			await axiosApp.post('/auth/login', data);
-			const result = await axiosApp.get('/auth/status');
+			// const result = await axiosApp.get('/auth/status');
 
 			window.location.reload();
 		} catch (err) {
@@ -101,7 +99,7 @@ function LoginPage() {
 		<>
 			<div className="login-page-container">
 				<div className="login-content-container">
-					<h2 className="amazoon-logo">DOPE KICKS</h2>
+					<h2 className="amazoon-logo">DARK DRIP <br /> The Chocolate Store</h2>
 					<h1>{isRegister ? 'CREATE AN ACCOUNT' : 'SIGN IN USING:'}</h1>
 					<form onSubmit={isRegister ? register : login}>
 						{isRegister ? (
@@ -141,7 +139,7 @@ function LoginPage() {
 								}>
 								{isRegister ? 'REGISTER' : 'SIGN IN'}
 							</button>
-							<a onClick={toggleAuthType}>
+							<a href="#/" onClick={toggleAuthType}>
 								{isRegister ? 'Have an account?' : 'Create account'}
 							</a>
 						</div>
@@ -158,7 +156,7 @@ function LoginPage() {
 				</div>
 			</div>
 			<div className="image-tint"></div>
-			<img className="hide-mobile login-background" src={LoginBackground} />
+			<img className="hide-mobile login-background" src={LoginBackground} alt="bg" />
 		</>
 	);
 }

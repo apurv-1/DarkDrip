@@ -12,6 +12,7 @@ function ProductPage() {
 
 	const [product, setProduct] = useState('loading');
 
+	/* eslint-disable */
 	useEffect(() => {
 		const source = axios.CancelToken.source();
 

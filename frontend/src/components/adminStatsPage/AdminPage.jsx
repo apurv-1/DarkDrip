@@ -15,6 +15,7 @@ function AdminPage() {
 	const stats = useSelector(state => state.adminStats);
 	const [willUpdateCharts, setWillUpdateCharts] = useState(false);
 
+	/* eslint-disable */
 	useEffect(() => {
 		const source = axios.CancelToken.source();
 

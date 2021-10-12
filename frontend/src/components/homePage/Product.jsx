@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProductButtons from './ProductButtons';
-import { ROLES } from '../../utils/data';
+// import { ROLES } from '../../utils/data';
 import { Link } from 'react-router-dom';
 
 function Product(props) {

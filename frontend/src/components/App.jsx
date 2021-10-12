@@ -19,6 +19,7 @@ function App() {
 	const cart = useSelector(state => state.cart);
 	const editPanelState = useSelector(state => state.editPanelState);
 
+	/* eslint-disable */
 	useEffect(() => {
 		const source = axios.CancelToken.source();
 

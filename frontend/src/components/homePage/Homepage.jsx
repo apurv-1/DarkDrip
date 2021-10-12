@@ -32,17 +32,19 @@ function Homepage() {
 				key={i}
 				onClick={() => setPageFilter(i + 1)}
 				className={page === i + 1 ? 'active-page' : ''}>
-				<a>{i + 1}</a>
+				<a href="#/">{i + 1}</a>
 			</li>
 		);
 	}
 
+	/* eslint-disable */
 	useEffect(() => {
 		if (preventFirstRender) return;
 
 		setPage(1);
 	}, [category, minPrice, maxPrice]);
 
+	/* eslint-disable */
 	useEffect(() => {
 		if (products === 'loading') {
 			setPreventFirstRender(false);
@@ -59,6 +61,7 @@ function Homepage() {
 		return () => source.cancel();
 	}, [editPanelState, page, category, minPrice, maxPrice]);
 
+	/* eslint-disable */
 	useEffect(() => {
 		dispatch(
 			setQueries({
@@ -192,13 +195,13 @@ function Homepage() {
 				</div>
 
 				<div className="page-selection">
-					<a className="prev-page" onClick={() => setPageFilter(page - 1)}>
+					<a href="#/" className="prev-page" onClick={() => setPageFilter(page - 1)}>
 						Previous
 					</a>
 					<div className="pages-container">
 						<ul>{pages}</ul>
 					</div>
-					<a className="next-page" onClick={() => setPageFilter(page + 1)}>
+					<a href="#/" className="next-page" onClick={() => setPageFilter(page + 1)}>
 						Next
 					</a>
 				</div>

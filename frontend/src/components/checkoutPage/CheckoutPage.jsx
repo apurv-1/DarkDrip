@@ -5,8 +5,8 @@ import Navbar from '../reusable/Navbar';
 import EditProductPanel from '../editProduct/EditProductPanel';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCart } from '../../redux/reduxActions';
-import axiosApp from '../../utils/axiosConfig';
-import axios from 'axios';
+// import axiosApp from '../../utils/axiosConfig';
+// import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 
 function CheckoutPage() {
@@ -28,20 +28,20 @@ function CheckoutPage() {
 	async function purchase(token) {
 		setIsLoading(true);
 		try {
-			const cartForBackend = cart.map(item => {
-				return {
-					product: item.product._id,
-					amount: item.amount
-				};
-			});
+			// const cartForBackend = cart.map(item => {
+			// 	return {
+			// 		product: item.product._id,
+			// 		amount: item.amountP
+			// 	};
+			// });
 
-			const result = await axios.all([
-				axiosApp.post('/products/purchase', {
-					products: cartForBackend,
-					token
-				}),
-				axiosApp.post('/products/cart', { products: [] })
-			]);
+			// const result = await axios.all([
+			// 	axiosApp.post('/products/purchase', {
+			// 		products: cartForBackend,
+			// 		token
+			// 	}),
+			// 	axiosApp.post('/products/cart', { products: [] })
+			// ]);
 			dispatch(setCart([]));
 			alert('Purchase successful.');
 		} catch (err) {

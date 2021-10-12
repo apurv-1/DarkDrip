@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(
 	cors({
 		credentials: true,
-		origin: isProduction ? 'https://dope-kicks.xyz' : 'http://localhost:3000'
+		origin: isProduction ? '' : 'http://localhost:3000'
 	})
 );
 app.use(

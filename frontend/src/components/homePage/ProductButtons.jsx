@@ -46,7 +46,7 @@ function ProductButtons(props) {
 				<button
 					onClick={() => (canEdit ? openEditPanel() : null)}
 					className={'btn-edit ' + (canEdit ? '' : ' not-editable')}>
-					<img src={SettingsIcon} />
+					<img src={SettingsIcon} alt="icon" />
 					{canEdit ? null : (
 						<span className="not-editable-tooltip">
 							You can't edit a default product.
