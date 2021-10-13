@@ -8,6 +8,8 @@ const { ROLES, CATEGORIES } = require('../config/data');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const { v4: uuid } = require('uuid');
 
+//ISSUE: Payments via Stripe not working!
+
 router.get('/', async (req, res) => {
   const itemsPerPage = parseInt(req.query.itemsPerPage);
   const page = parseInt(req.query.page) || 1;
@@ -59,32 +61,40 @@ router.post('/purchase', authUser, verifyProductsSyntax, async (req, res) => {
   products.forEach((item) => {
     totalPrice += dbProducts.find((product) => product.id === item.product).price * item.amount;
   });
-
-  stripe.customers
-    .create({ email: token.email, source: token.id })
-    .then((customer) => {
-      stripe.charges
-        .create(
-          {
-            amount: totalPrice,
-            currency: 'eur',
-            customer: customer.id,
-            description: dbProducts.length + ' products.',
-          },
-          { idempotencyKey }
-        )
-        .then(() => {
-          new Order({
-            products: req.body.products,
-            buyerId: req.user.id,
-          })
-            .save()
-            .then(() => res.send('Transaction successful.'))
-            .catch((err) => res.send(err));
-        })
-        .catch((err) => res.send(err));
-    })
+  const order = new Order({
+    products: req.body.products,
+    buyerId: req.user.id,
+  });
+  order
+    .save()
+    .then(() => res.send('Transaction successful.'))
     .catch((err) => res.send(err));
+
+  // stripe.customers
+  //   .create({ email: token.email, source: token.id })
+  //   .then((customer) => {
+  //     stripe.charges
+  //       .create(
+  //         {
+  //           amount: totalPrice,
+  //           currency: 'eur',
+  //           customer: customer.id,
+  //           description: dbProducts.length + ' products.',
+  //         },
+  //         { idempotencyKey }
+  //       )
+  //       .then(() => {
+  //         new Order({
+  //           products: req.body.products,
+  //           buyerId: req.user.id,
+  //         })
+  //           .save()
+  //           .then(() => res.send('Transaction successful.'))
+  //           .catch((err) => res.send(err));
+  //       })
+  //       .catch((err) => res.send(err));
+  //   })
+  //   .catch((err) => res.send(err));
 });
 
 router.post('/cart', authUser, verifyProductsSyntax, (req, res) => {
@@ -106,7 +116,7 @@ router.post('/new-product', authAdmin, (req, res) => {
     name: req.body.name,
     price: req.body.price,
     description: req.body.description || undefined,
-    category: req.body.category || CATEGORIES.RUNNING,
+    category: req.body.category || CATEGORIES.MILK_CHOCOLATE,
     imagePath: req.body.imagePath,
     isDefault: Boolean(req.user.role === ROLES.MASTER && req.body.isDefault),
   });

@@ -85,7 +85,7 @@ function NavItems(props) {
       <li>
         <Link to="/">
           <img className="hide-desktop" alt="store" src={StoreIcon} />
-          <p className="hide-mobile">Home</p>
+          <p className="hide-mobile">Shop</p>
         </Link>
       </li>
 
@@ -100,12 +100,12 @@ function NavItems(props) {
         <>
           <li onClick={props.toggleNewProduct}>
             <img className="hide-desktop" alt="add item" src={NewProductIcon} />
-            <p className="hide-mobile">Add Product</p>
+            <p className="hide-mobile">Add Chocolate</p>
           </li>
           <li>
             <Link to="/dashboard">
               <img className="hide-desktop" alt="store" src={ChartIcon} />
-              <p className="hide-mobile">Dashboard</p>
+              <p className="hide-mobile">Sales Dashboard</p>
             </Link>
           </li>
         </>

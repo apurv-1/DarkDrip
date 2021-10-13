@@ -5,8 +5,9 @@ module.exports = {
 		BASIC: 'basic'
 	},
 	CATEGORIES: {
-		RUNNING: 'running',
-		LIFESTYLE: 'lifestyle',
-		BASKETBALL: 'basketball'
+		MILK_CHOCOLATE: 'milk',
+		DARK_CHOCOLATE: 'dark',
+		WHITE_CHOCOLATE: 'white',
+		CANDY: 'candy'
 	}
 };

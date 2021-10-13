@@ -1,11 +1,13 @@
 @import '_variables.scss';
 
 .checkout-page-container {
-	width: 100vw;
+	// width: 100vw;
 	min-height: 100vh;
 	background: white;
 	box-sizing: border-box;
 	padding: 5rem 0 3rem;
+	// overflow-x: hidden;
+
 
 	h1 {
 		text-align: left;
@@ -170,6 +172,16 @@ input::-webkit-inner-spin-button {
 			}
 		}
 	}
+// 	div {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		align-items: center;
+// 
+// 		// span {
+// 		// 	font-size: 1rem;
+// 		// 	font-weight: 50;
+// 		// }
+// 	}
 }
 
 .paypal-button {

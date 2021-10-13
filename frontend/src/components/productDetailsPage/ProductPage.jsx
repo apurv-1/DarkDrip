@@ -22,7 +22,7 @@ function ProductPage() {
 					cancelToken: source.token
 				});
 
-				console.log(result.data);
+				// console.log(result.data);
 				setProduct(result.data);
 			} catch (e) {
 				console.log(e);
@@ -61,7 +61,7 @@ function ProductPage() {
 				<div className="product-details-container">
 					<p className="product-page-name">{product.name}</p>
 					<p className="product-page-price">
-						{'$' + (Math.round(product.price) / 100).toFixed(2)}
+						{'₹' + (Math.round(product.price) / 100).toFixed(2)}
 					</p>
 					<p className="product-page-category">
 						Category:{' '}

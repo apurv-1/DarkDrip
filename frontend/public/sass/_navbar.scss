@@ -1,4 +1,8 @@
 @import './_variables.scss';
+@font-face {
+  font-family: GT;
+  src: url('../Fonts/GT\ America\ Extended\ Bold.ttf');
+}
 
 nav {
 	height: $navMobileHeight;
@@ -20,7 +24,7 @@ nav {
 }
 
 .nav-logo {
-	font-family: 'Days One', sans-serif;
+	font-family: GT;
 	color: white;
 	text-decoration: none;
 }
@@ -184,7 +188,7 @@ nav {
 
 	.cart-item-count {
 		p {
-			font-size: 1.15rem;
+			font-size: 1rem;
 		}
 	}
 }

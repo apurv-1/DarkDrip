@@ -21,7 +21,7 @@ function Product(props) {
 				</div>
 				<p className="product-name">{props.product.name}</p>
 				<p className="product-price">
-					{'$' + (Math.round(props.product.price) / 100).toFixed(2)}
+					{'₹' + (Math.round(props.product.price) / 100).toFixed(2)}
 				</p>
 			</Link>
 			<ProductButtons userRole={props.userRole} product={props.product} />
