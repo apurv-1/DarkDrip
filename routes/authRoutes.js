@@ -8,7 +8,7 @@ const { ROLES } = require('../config/data');
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.redirect(process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000');
+  res.redirect(process.env.NODE_ENV === 'production' ? 'http://3.110.32.242:3000' : 'http://localhost:3000');
 });
 
 router.post('/register', async (req, res) => {

@@ -22,26 +22,26 @@ const isProduction = process.env.NODE_ENV === 'production';
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
-	cors({
-		credentials: true,
-		origin: isProduction ? '' : 'http://localhost:3000'
-	})
+  cors({
+    credentials: true,
+    origin: isProduction ? 'http://3.110.32.242:3000' : 'http://localhost:3000',
+  })
 );
 app.use(
-	session({
-		secret: process.env.SESSION_SECRET,
-		resave: false,
-		saveUninitialized: false,
-		proxy: isProduction,
-		store: new MemoryStore({
-			checkPeriod: 10 * 60 * 1000
-		}),
-		cookie: {
-			maxAge: 30 * 24 * 60 * 60 * 1000,
-			httpOnly: false,
-			secure: isProduction
-		}
-	})
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    proxy: isProduction,
+    store: new MemoryStore({
+      checkPeriod: 10 * 60 * 1000,
+    }),
+    cookie: {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: false,
+      secure: isProduction,
+    },
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,11 +49,11 @@ app.use(flash());
 
 // Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useCreateIndex: true,
-	autoIndex: true,
-	useFindAndModify: false
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  autoIndex: true,
+  useFindAndModify: false,
 });
 mongoose.connection.once('open', () => console.log('Connected to MongoDB'));
 
@@ -64,14 +64,14 @@ app.use('/admin', adminStatsRoutes);
 
 // Serve static files when in production
 if (isProduction) {
-	app.use(express.static('frontend/build'));
+  app.use(express.static('frontend/build'));
 
-	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-	});
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
 }
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-	console.log('Server running on port ' + PORT);
+  console.log('Server running on port ' + PORT);
 });
