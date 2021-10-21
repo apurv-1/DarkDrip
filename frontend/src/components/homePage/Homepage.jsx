@@ -77,7 +77,7 @@ function Homepage() {
   async function getProducts(token) {
     setIsLoading(true);
 
-    const itemsPerPage = 8;
+    const itemsPerPage = 4;
 
     try {
       const result = await axiosApp.get(
@@ -134,7 +134,8 @@ function Homepage() {
                   <p>From:</p>
                   <input
                     type="number"
-                    placeholder="₹₹₹₹"
+                    placeholder="₹₹₹"
+                    className="rupee"
                     value={minPrice / 100 || ''}
                     onChange={(e) => setMinPrice(e.target.value ? e.target.value * 100 : '')}
                   />
@@ -143,7 +144,8 @@ function Homepage() {
                   <p>To:</p>
                   <input
                     type="number"
-                    placeholder="₹₹₹₹"
+                    placeholder="₹₹₹"
+                    className="rupee"
                     value={maxPrice / 100 || ''}
                     onChange={(e) => setMaxPrice(e.target.value ? e.target.value * 100 : '')}
                   />
@@ -194,7 +196,6 @@ function Homepage() {
             margin: '2rem auto 1rem',
           }}>
           No copyright infringement intended. All images used belong to their respective owners.
-          This is just a hobby project.
         </p>
       </div>
     </>

@@ -137,6 +137,10 @@ input:focus {
   cursor: default;
 }
 
+.rupee {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .btn-secondary {
   border-radius: 8px;
   font-weight: bold;

@@ -5,8 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "node server.js",
-		"frontend": "cd frontend && npm start"
+		"server": "node server.js",
+		"frontend": "cd frontend && npm start",
+		"dev": "concurrently \"npm run server \" \"npm run frontend\""
 	},
 	"keywords": [],
 	"author": "",
@@ -14,6 +15,7 @@
 	"dependencies": {
 		"bcrypt": "^5.0.0",
 		"body-parser": "^1.19.0",
+		"concurrently": "^6.3.0",
 		"connect-flash": "^0.1.1",
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",

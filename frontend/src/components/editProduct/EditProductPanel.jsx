@@ -132,10 +132,10 @@ function EditProductPanel() {
                   placeholder="Name of product"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  maxLength={32}
+                  maxLength={44}
                 />
                 <LabeledInput
-                  label="Price (in USD)"
+                  label="Price (in INR)"
                   name="price"
                   placeholder="Price of product"
                   inputType="number"

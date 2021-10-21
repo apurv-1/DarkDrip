@@ -60,7 +60,7 @@ function ProductPage() {
 				</div>
 				<div className="product-details-container">
 					<p className="product-page-name">{product.name}</p>
-					<p className="product-page-price">
+					<p className="product-page-price rupee">
 						{'₹' + (Math.round(product.price) / 100).toFixed(2)}
 					</p>
 					<p className="product-page-category">

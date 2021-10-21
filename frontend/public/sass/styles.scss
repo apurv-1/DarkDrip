@@ -115,6 +115,9 @@ input {
   background: #7dcfff;
   cursor: default;
 }
+.rupee {
+  font-family: 'Courier New', Courier, monospace
+}
 
 .btn-secondary {
   @include btn();

@@ -41,7 +41,7 @@ function CartTableItem(props) {
         />
       </td>
       <td className="cart-product-name">{props.product.name}</td>
-      <td className="cart-product-price">
+      <td className="cart-product-price rupee">
         {'₹' + (Math.round(props.product.price) / 100).toFixed(2)}
       </td>
       <td className="cart-amount">
@@ -56,7 +56,7 @@ function CartTableItem(props) {
           <button onClick={increment}>+</button>
         </div>
       </td>
-      <td className="cart-product-total">
+      <td className="cart-product-total rupee">
         {'₹' + (Math.round(props.product.price * props.amount) / 100).toFixed(2)}
       </td>
     </tr>

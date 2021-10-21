@@ -95,19 +95,16 @@ function CheckoutPage() {
               <div className="checkout-prices">
                 <p>
                   <span>Subtotal: </span>
-                  <span>₹{total}</span>
-                </p>
-                <p>
-                  <span>Delivery Charges: </span>
-                  <span>₹ 55</span>
+                  <span className="rupee">₹{total}</span>
                 </p>
                 <p>
                   <span>GST Charges(18%): </span>
-                  <span>₹ {parseFloat(total * 0.18)}</span>
+                  <span className="rupee">₹ {parseInt(total * 0.18)}</span>
                 </p>
                 <hr />
                 <p>
-                  <span>Total: </span> <span>₹{total + 55 + parseFloat(total * 0.18)}</span>
+                  <span>Total: </span>{' '}
+                  <span className="rupee">₹{total + parseInt(total * 0.18)}</span>
                 </p>
               </div>
 

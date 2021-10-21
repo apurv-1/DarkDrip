@@ -20,7 +20,7 @@ function Product(props) {
 					/>
 				</div>
 				<p className="product-name">{props.product.name}</p>
-				<p className="product-price">
+				<p className="product-price rupee">
 					{'₹' + (Math.round(props.product.price) / 100).toFixed(2)}
 				</p>
 			</Link>
