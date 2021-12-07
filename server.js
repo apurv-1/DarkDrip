@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     credentials: true,
-    origin: isProduction ? 'http://3.110.32.242:3000' : 'http://localhost:3000',
+    origin: isProduction ? 'http://65.2.128.34:3000' : 'http://localhost:3000',
   })
 );
 app.use(
