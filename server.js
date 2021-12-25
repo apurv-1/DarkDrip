@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     credentials: true,
-    origin: isProduction ? 'http://65.2.128.34:3000' : 'http://localhost:3000',
+    origin: isProduction ? 'https://darkdrip.herokuapp.com/' : 'http://localhost:3000',
   })
 );
 app.use(
